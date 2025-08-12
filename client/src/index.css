@@ -109,7 +109,7 @@
   
   /* Product card hover effects */
   .product-card {
-    @apply group cursor-pointer transition-all duration-300 hover:shadow-lg;
+    @apply cursor-pointer transition-all duration-300 hover:shadow-lg;
   }
   
   .product-card-image {

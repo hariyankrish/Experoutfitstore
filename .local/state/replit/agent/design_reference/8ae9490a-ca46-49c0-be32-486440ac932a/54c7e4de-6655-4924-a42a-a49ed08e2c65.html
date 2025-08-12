@@ -1,0 +1,750 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPEROUTFIT - Custom Streetwear & Apparel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#FFFFFF',
+                        accent: '#3B82F6',
+                        neutral: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-white text-neutral-900">
+
+    <!-- @COMPONENT: Header [navigation, cart, user menu] -->
+    <header class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-primary tracking-tight">EXPEROUTFIT</h1>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Shop All</a>
+                    <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Custom Design</a>
+                    <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Collections</a>
+                    <a href="#" class="text-neutral-600 hover:text-primary transition-colors">About</a>
+                </nav>
+                
+                <!-- Right side -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-neutral-600 hover:text-primary transition-colors">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="text-neutral-600 hover:text-primary transition-colors">
+                        <i class="fas fa-user text-lg"></i>
+                    </button>
+                    <button class="text-neutral-600 hover:text-primary transition-colors relative" data-mock="true">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="md:hidden text-neutral-600 hover:text-primary transition-colors">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero [main banner, CTA] -->
+    <section class="relative bg-neutral-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-4xl lg:text-6xl font-bold text-primary leading-tight">
+                        Design Your
+                        <span class="text-accent">Unique</span>
+                        Streetwear
+                    </h2>
+                    <p class="text-lg text-neutral-600 leading-relaxed">
+                        Create custom t-shirts, hoodies, and accessories with our intuitive design tools. 
+                        Express your style with premium quality materials and professional printing.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-neutral-800 transition-colors">
+                            Start Designing
+                        </button>
+                        <button class="border border-neutral-300 text-neutral-700 px-8 py-4 rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+                            Shop Collections
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- A person wearing a custom designed black t-shirt with graphic print -->
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800" 
+                         alt="Custom designed streetwear" 
+                         class="rounded-2xl shadow-2xl w-full h-auto" />
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-green-100 p-2 rounded-full">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-sm">Free Shipping</p>
+                                <p class="text-neutral-500 text-xs">On orders over $50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero -->
+
+    <!-- @COMPONENT: ProductCategories [category grid] -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-primary mb-4">Shop by Category</h3>
+                <p class="text-neutral-600 max-w-2xl mx-auto">Discover our premium collection of streetwear essentials and custom design options</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- @MAP: categories.map(category => ( -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A collection of colorful custom t-shirts displayed on hangers -->
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="T-Shirts Collection" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold text-lg">T-Shirts</h4>
+                            <p class="text-sm opacity-90">From $24.99</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A stylish hoodie mockup in different colors -->
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Hoodies Collection" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold text-lg">Hoodies</h4>
+                            <p class="text-sm opacity-90">From $49.99</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A pair of trendy sneakers with custom design elements -->
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Shoes Collection" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold text-lg">Shoes</h4>
+                            <p class="text-sm opacity-90">From $79.99</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A collection of stylish accessories and stickers -->
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Accessories Collection" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold text-lg">Accessories</h4>
+                            <p class="text-sm opacity-90">From $9.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProductCategories -->
+
+    <!-- @COMPONENT: CustomDesignSection [design tool preview] -->
+    <section class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h3 class="text-3xl font-bold text-primary">Custom Design Studio</h3>
+                    <p class="text-lg text-neutral-600">
+                        Bring your ideas to life with our professional design tools. Upload your artwork, 
+                        choose colors, and see instant previews on premium quality apparel.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-accent/10 p-2 rounded-full">
+                                <i class="fas fa-upload text-accent"></i>
+                            </div>
+                            <span class="text-neutral-700">Upload your designs or choose from templates</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-accent/10 p-2 rounded-full">
+                                <i class="fas fa-eye text-accent"></i>
+                            </div>
+                            <span class="text-neutral-700">Real-time preview on clothing mockups</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-accent/10 p-2 rounded-full">
+                                <i class="fas fa-palette text-accent"></i>
+                            </div>
+                            <span class="text-neutral-700">AI background removal & color customization</span>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        Try Design Studio
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <!-- @FUNCTIONALITY: This should implement the custom design interface -->
+                    <div class="space-y-6">
+                        <div class="text-center">
+                            <h4 class="font-semibold text-lg mb-4">Design Preview</h4>
+                            <div class="relative bg-neutral-100 rounded-lg p-8 aspect-square">
+                                <!-- A t-shirt mockup template ready for custom design -->
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                                     alt="T-shirt design template" 
+                                     class="w-full h-full object-contain" data-mock="true" />
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="bg-white/90 backdrop-blur-sm p-4 rounded-lg text-center">
+                                        <i class="fas fa-plus text-2xl text-neutral-400 mb-2"></i>
+                                        <p class="text-sm text-neutral-600">Drop your design here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-neutral-700 mb-2">Garment</label>
+                                <select class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent">
+                                    <option>T-Shirt</option>
+                                    <option>Hoodie</option>
+                                    <option>Tank Top</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-neutral-700 mb-2">Color</label>
+                                <select class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent">
+                                    <option>Black</option>
+                                    <option>White</option>
+                                    <option>Navy</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-4 border-t border-neutral-200">
+                            <span class="text-lg font-semibold">Total: <span data-bind="price" class="text-accent">$29.99</span></span>
+                            <button class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-neutral-800 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CustomDesignSection -->
+
+    <!-- @COMPONENT: FeaturedProducts [product grid] -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-primary mb-4">Featured Products</h3>
+                <p class="text-neutral-600">Handpicked designs from our latest collections</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- @MAP: featuredProducts.map(product => ( -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A trendy graphic t-shirt with modern streetwear design -->
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Graphic T-Shirt" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button class="bg-white p-2 rounded-full shadow-lg hover:bg-neutral-50 transition-colors">
+                                <i class="fas fa-heart text-neutral-400 hover:text-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-accent text-white text-xs px-2 py-1 rounded-full font-medium">New</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-semibold text-neutral-900" data-bind="product.name">Urban Graphic Tee</h4>
+                        <div class="flex items-center space-x-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                            <span class="text-neutral-500 text-sm">(24)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-semibold text-primary" data-bind="product.price">$24.99</span>
+                            <span class="text-neutral-400 line-through text-sm" data-bind="product.originalPrice">$34.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A comfortable hoodie in multiple color options -->
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Premium Hoodie" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button class="bg-white p-2 rounded-full shadow-lg hover:bg-neutral-50 transition-colors">
+                                <i class="fas fa-heart text-neutral-400 hover:text-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-semibold text-neutral-900">Essential Hoodie</h4>
+                        <div class="flex items-center space-x-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="far fa-star text-xs"></i>
+                            </div>
+                            <span class="text-neutral-500 text-sm">(18)</span>
+                        </div>
+                        <p class="font-semibold text-primary">$49.99</p>
+                    </div>
+                </div>
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- Stylish customizable sneakers in trendy design -->
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Custom Sneakers" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button class="bg-white p-2 rounded-full shadow-lg hover:bg-neutral-50 transition-colors">
+                                <i class="fas fa-heart text-neutral-400 hover:text-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-medium">Hot</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-semibold text-neutral-900">Street Sneakers</h4>
+                        <div class="flex items-center space-x-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                            </div>
+                            <span class="text-neutral-500 text-sm">(31)</span>
+                        </div>
+                        <p class="font-semibold text-primary">$89.99</p>
+                    </div>
+                </div>
+                
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl bg-neutral-100 aspect-square mb-4">
+                        <!-- A collection of colorful custom stickers and patches -->
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" 
+                             alt="Sticker Pack" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button class="bg-white p-2 rounded-full shadow-lg hover:bg-neutral-50 transition-colors">
+                                <i class="fas fa-heart text-neutral-400 hover:text-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-semibold text-neutral-900">Sticker Pack</h4>
+                        <div class="flex items-center space-x-1">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="fas fa-star text-xs"></i>
+                                <i class="far fa-star text-xs"></i>
+                            </div>
+                            <span class="text-neutral-500 text-sm">(12)</span>
+                        </div>
+                        <p class="font-semibold text-primary">$12.99</p>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border border-neutral-300 text-neutral-700 px-8 py-3 rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+                    View All Products
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: FeaturedProducts -->
+
+    <!-- @COMPONENT: InstagramFeed [social integration] -->
+    <section class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-primary mb-4">Follow @experoutfit</h3>
+                <p class="text-neutral-600">See how our community styles their custom designs</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- @MAP: instagramPosts.map(post => ( -->
+                <!-- A customer wearing custom designed EXPEROUTFIT streetwear -->
+                <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+                         alt="Customer wearing custom design" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                
+                <!-- A styled flat lay of EXPEROUTFIT clothing items -->
+                <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+                         alt="Styled clothing flat lay" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                
+                <!-- A street style photo featuring EXPEROUTFIT designs -->
+                <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+                         alt="Street style photo" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                
+                <!-- A creative custom design process behind the scenes -->
+                <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+                         alt="Design process behind the scenes" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                
+                <!-- A group of friends wearing coordinated EXPEROUTFIT designs -->
+                <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+                         alt="Friends wearing coordinated designs" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                
+                <!-- A close-up of intricate custom embroidery details -->
+                <div class="aspect-square bg-neutral-100 rounded-lg overflow-hidden cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" 
+                         alt="Custom embroidery details" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: InstagramFeed -->
+
+    <!-- @COMPONENT: CustomerReviews [testimonials] -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-primary mb-4">What Our Customers Say</h3>
+                <p class="text-neutral-600">Real feedback from our community</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- @MAP: reviews.map(review => ( -->
+                <div class="bg-neutral-50 p-6 rounded-xl">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-neutral-700 mb-4" data-mock="true">
+                        "Amazing quality and the design tool is so easy to use! My custom hoodie turned out exactly how I imagined."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-neutral-300 rounded-full"></div>
+                        <div>
+                            <p class="font-semibold text-sm" data-mock="true">Sarah M.</p>
+                            <p class="text-neutral-500 text-xs">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-neutral-50 p-6 rounded-xl">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-neutral-700 mb-4" data-mock="true">
+                        "Fast shipping and great customer service. The WhatsApp support made ordering so convenient!"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-neutral-300 rounded-full"></div>
+                        <div>
+                            <p class="font-semibold text-sm" data-mock="true">Mike D.</p>
+                            <p class="text-neutral-500 text-xs">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-neutral-50 p-6 rounded-xl">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-neutral-700 mb-4" data-mock="true">
+                        "Love the streetwear aesthetic and the custom options. Finally found a brand that gets my style!"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-neutral-300 rounded-full"></div>
+                        <div>
+                            <p class="font-semibold text-sm" data-mock="true">Alex R.</p>
+                            <p class="text-neutral-500 text-xs">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CustomerReviews -->
+
+    <!-- @COMPONENT: Footer [links, social, newsletter] -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4">
+                    <h4 class="text-2xl font-bold">EXPEROUTFIT</h4>
+                    <p class="text-neutral-300">
+                        Premium custom streetwear designed by you, crafted by us.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Shop</h5>
+                    <ul class="space-y-2 text-neutral-300">
+                        <li><a href="#" class="hover:text-white transition-colors">All Products</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">T-Shirts</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Hoodies</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Accessories</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Custom Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Support</h5>
+                    <ul class="space-y-2 text-neutral-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Newsletter</h5>
+                    <p class="text-neutral-300 mb-4">Get updates on new drops and exclusive designs</p>
+                    <div class="space-y-3">
+                        <input type="email" placeholder="Enter your email" 
+                               class="w-full px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-accent">
+                        <button class="w-full bg-accent text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-neutral-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-neutral-300 text-sm">© 2024 EXPEROUTFIT. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-sm text-neutral-300">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: WhatsAppChatbot [floating chat widget] -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors group">
+            <i class="fab fa-whatsapp text-2xl"></i>
+            <div class="absolute bottom-full right-0 mb-2 bg-neutral-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Chat with us on WhatsApp
+            </div>
+        </button>
+    </div>
+    <!-- @END_COMPONENT: WhatsAppChatbot -->
+
+    <!-- @COMPONENT: ShoppingCart [side panel overlay] -->
+    <!-- @STATE: isCartOpen:boolean = false -->
+    <div class="fixed inset-0 z-50 overflow-hidden hidden" id="cart-overlay">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between p-6 border-b border-neutral-200">
+                    <h3 class="text-lg font-semibold">Shopping Cart</h3>
+                    <button class="text-neutral-400 hover:text-neutral-600 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="flex-1 overflow-y-auto p-6">
+                    <!-- @MAP: cartItems.map(item => ( -->
+                    <div class="flex items-center space-x-4 py-4 border-b border-neutral-100" data-mock="true">
+                        <div class="w-16 h-16 bg-neutral-100 rounded-lg overflow-hidden flex-shrink-0">
+                            <!-- A small product thumbnail -->
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                                 alt="Product thumbnail" 
+                                 class="w-full h-full object-cover" />
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-sm">Custom Graphic Tee</h4>
+                            <p class="text-neutral-500 text-xs">Black, Size M</p>
+                            <div class="flex items-center justify-between mt-2">
+                                <div class="flex items-center space-x-2">
+                                    <button class="w-6 h-6 bg-neutral-100 rounded-full flex items-center justify-center text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                        <i class="fas fa-minus text-xs"></i>
+                                    </button>
+                                    <span class="text-sm font-medium">1</span>
+                                    <button class="w-6 h-6 bg-neutral-100 rounded-full flex items-center justify-center text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                        <i class="fas fa-plus text-xs"></i>
+                                    </button>
+                                </div>
+                                <span class="font-semibold text-sm">$24.99</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+                
+                <div class="p-6 border-t border-neutral-200">
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span>Subtotal</span>
+                            <span data-bind="cart.subtotal">$74.97</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>Shipping</span>
+                            <span class="text-green-600">Free</span>
+                        </div>
+                        <div class="flex justify-between font-semibold text-lg border-t border-neutral-200 pt-3">
+                            <span>Total</span>
+                            <span data-bind="cart.total">$74.97</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-neutral-800 transition-colors">
+                        Secure Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: ShoppingCart -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        
+        (function() {
+            // Basic interaction handlers - placeholder implementation
+            const cartButton = document.querySelector('[data-mock="true"] button');
+            const cartOverlay = document.getElementById('cart-overlay');
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            
+            // Design tool interactions
+            const designSelects = document.querySelectorAll('select');
+            designSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    // TODO: Update design preview based on selection
+                    console.log('Design option changed:', this.value);
+                });
+            });
+            
+            // Product hover effects and interactions handled by CSS
+            
+            // WhatsApp integration
+            const whatsappButton = document.querySelector('.bg-green-500');
+            if (whatsappButton) {
+                whatsappButton.addEventListener('click', function() {
+                    // TODO: Integrate with WhatsApp Business API
+                    console.log('Opening WhatsApp chat...');
+                });
+            }
+            
+            // Newsletter subscription
+            const newsletterForm = document.querySelector('input[type="email"]');
+            if (newsletterForm) {
+                const subscribeButton = newsletterForm.nextElementSibling;
+                subscribeButton.addEventListener('click', function() {
+                    // TODO: Handle newsletter subscription
+                    const email = newsletterForm.value;
+                    console.log('Newsletter subscription:', email);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

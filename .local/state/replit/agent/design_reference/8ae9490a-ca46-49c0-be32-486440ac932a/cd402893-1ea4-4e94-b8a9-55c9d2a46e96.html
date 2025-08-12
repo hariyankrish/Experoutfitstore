@@ -1,0 +1,689 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPEROUTFIT - Premium Streetwear & Custom Apparel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-black': '#000000',
+                        'brand-blue': '#3B82F6',
+                        'brand-gray': '#64748B',
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white font-inter">
+    <!-- @COMPONENT: Header -->
+    <header class="sticky top-0 bg-white border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-black text-brand-black">EXPEROUTFIT</h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-900 hover:text-brand-blue transition-colors font-medium">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-brand-blue transition-colors font-medium">Collections</a>
+                    <a href="#" class="text-gray-600 hover:text-brand-blue transition-colors font-medium">T-Shirts</a>
+                    <a href="#" class="text-gray-600 hover:text-brand-blue transition-colors font-medium">Pants</a>
+                    <a href="#" class="text-gray-600 hover:text-brand-blue transition-colors font-medium">Shoes</a>
+                    <a href="#" class="text-gray-600 hover:text-brand-blue transition-colors font-medium">Custom</a>
+                </nav>
+                
+                <!-- Right side icons -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-brand-blue transition-colors">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-brand-blue transition-colors">
+                        <i class="fas fa-user text-lg"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-brand-blue transition-colors relative">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-brand-blue text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" data-bind="cart.itemCount">3</span>
+                    </button>
+                    <button class="md:hidden text-gray-600 hover:text-brand-blue transition-colors">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section class="relative bg-gray-900 text-white overflow-hidden">
+        <!-- Hero background image -->
+        <!-- A stylish model wearing modern streetwear against urban backdrop -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&h=1380');">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl sm:text-6xl font-black leading-tight mb-6">
+                    REDEFINE YOUR
+                    <span class="text-brand-blue">STREET STYLE</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    Discover unique streetwear and custom-printed apparel that speaks your language. Express yourself with EXPEROUTFIT's premium collection.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                        Shop Collection
+                    </button>
+                    <button class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+                        Custom Orders
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Product Categories -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Shop by Category</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore our curated collections of premium streetwear designed for the modern trendsetter</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- T-Shirts Category -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <!-- Collection of stylish t-shirts displayed in modern layout -->
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                             alt="T-Shirts Collection" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-semibold">T-Shirts</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pants Category -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <!-- Trendy streetwear pants and jeans collection -->
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                             alt="Pants Collection" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-semibold">Pants</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shoes Category -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <!-- Modern sneakers and streetwear footwear collection -->
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                             alt="Shoes Collection" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-semibold">Shoes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Category -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <!-- Custom printing and design service showcase -->
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                             alt="Custom Designs" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-white text-gray-900 px-4 py-2 rounded-full font-semibold">Custom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Product Categories -->
+
+    <!-- @COMPONENT: Featured Products -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Products</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Handpicked favorites from our latest collection</p>
+            </div>
+            
+            <!-- @MAP: featuredProducts.map(product => ( -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <!-- Stylish black streetwear t-shirt with modern graphic design -->
+                        <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" 
+                             alt="Urban Graphic Tee" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-heart text-gray-600 hover:text-red-500"></i>
+                        </button>
+                        <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-blue text-white px-6 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2" data-bind="product.name">Urban Graphic Tee</h3>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-gray-900" data-bind="product.price">$49.99</span>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 mr-1">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-600" data-bind="product.reviews">(127)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <!-- Premium denim streetwear jeans with modern fit -->
+                        <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" 
+                             alt="Premium Denim Jeans" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-heart text-gray-600 hover:text-red-500"></i>
+                        </button>
+                        <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-blue text-white px-6 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2" data-bind="product.name">Premium Denim</h3>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-gray-900" data-bind="product.price">$89.99</span>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 mr-1">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="far fa-star text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-600" data-bind="product.reviews">(89)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <!-- High-top streetwear sneakers with modern design -->
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" 
+                             alt="High-Top Sneakers" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-heart text-gray-600 hover:text-red-500"></i>
+                        </button>
+                        <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-blue text-white px-6 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            Add to Cart
+                        </button>
+                        <span class="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded-lg text-sm font-semibold">Sale</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2" data-bind="product.name">High-Top Sneakers</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xl font-bold text-gray-900" data-bind="product.price">$119.99</span>
+                            <span class="text-lg text-gray-500 line-through" data-bind="product.originalPrice">$149.99</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 mr-1">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-600" data-bind="product.reviews">(203)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <!-- Custom printed hoodie with unique streetwear design -->
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" 
+                             alt="Custom Print Hoodie" 
+                             class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-heart text-gray-600 hover:text-red-500"></i>
+                        </button>
+                        <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-blue text-white px-6 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2" data-bind="product.name">Custom Print Hoodie</h3>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-gray-900" data-bind="product.price">$69.99</span>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 mr-1">
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="fas fa-star text-sm"></i>
+                                <i class="far fa-star text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-600" data-bind="product.reviews">(156)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+            
+            <div class="text-center mt-12">
+                <button class="bg-brand-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                    View All Products
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Featured Products -->
+
+    <!-- @COMPONENT: Instagram Feed -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Follow @EXPEROUTFIT</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">See how our community styles their EXPEROUTFIT pieces</p>
+            </div>
+            
+            <!-- @MAP: instagramPosts.map(post => ( -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Instagram Post 1 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Street style model wearing EXPEROUTFIT branded clothing -->
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Street style Instagram post" 
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Instagram Post 2 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Urban fashion photography featuring streetwear outfit -->
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Urban fashion Instagram post" 
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Instagram Post 3 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Trendy model showcasing custom printed apparel -->
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Custom apparel Instagram post" 
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Instagram Post 4 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Streetwear lifestyle photography with urban background -->
+                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Streetwear lifestyle Instagram post" 
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Instagram Post 5 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Fashion model wearing modern streetwear accessories -->
+                    <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Streetwear accessories Instagram post" 
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Instagram Post 6 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Young person in trendy streetwear outfit pose -->
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" 
+                         alt="Trendy streetwear Instagram post" 
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Instagram Feed -->
+
+    <!-- @COMPONENT: Customer Reviews -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Real feedback from our EXPEROUTFIT community</p>
+            </div>
+            
+            <!-- @MAP: customerReviews.map(review => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-bind="review.content">
+                        "Amazing quality! The fabric is so comfortable and the fit is perfect. EXPEROUTFIT has become my go-to brand for streetwear."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Happy customer profile photo wearing EXPEROUTFIT -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                             alt="Customer Alex" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900" data-bind="review.customerName">Alex Johnson</h4>
+                            <p class="text-gray-600 text-sm" data-bind="review.location">New York, NY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-bind="review.content">
+                        "Love the custom printing service! They brought my design to life perfectly. Fast shipping and excellent customer service."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Satisfied female customer wearing fashionable outfit -->
+                        <img src="https://pixabay.com/get/g687a827ab7740f1096232b9b11dfbb93ffa9ad0bf6bc09cc7f52489900c104ef7d96830a9e57ae944cb7f2f88b42cd1879485aa2681c3dc69649efa403d5d076_1280.jpg" 
+                             alt="Customer Sarah" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900" data-bind="review.customerName">Sarah Chen</h4>
+                            <p class="text-gray-600 text-sm" data-bind="review.location">Los Angeles, CA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-bind="review.content">
+                        "Great selection of unique pieces. The quality is top-notch and the designs are always on-trend. Highly recommended!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Young trendy customer in casual streetwear -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                             alt="Customer Mike" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900" data-bind="review.customerName">Mike Rodriguez</h4>
+                            <p class="text-gray-600 text-sm" data-bind="review.location">Miami, FL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Customer Reviews -->
+
+    <!-- @COMPONENT: Newsletter & Features -->
+    <section class="py-20 bg-brand-black text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Newsletter Signup -->
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Stay Updated</h2>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Be the first to know about new drops, exclusive sales, and limited edition releases.
+                    </p>
+                    <form class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" 
+                               placeholder="Enter your email" 
+                               class="flex-1 px-6 py-4 rounded-lg text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                               data-bind="newsletter.email">
+                        <button type="submit" 
+                                class="bg-brand-blue hover:bg-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Features -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shipping-fast text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Free Shipping</h3>
+                        <p class="text-gray-300 text-sm">On orders over $75</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-undo text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Easy Returns</h3>
+                        <p class="text-gray-300 text-sm">30-day return policy</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-palette text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Custom Designs</h3>
+                        <p class="text-gray-300 text-sm">Personalized printing</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-headset text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">24/7 Support</h3>
+                        <p class="text-gray-300 text-sm">Always here to help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Newsletter & Features -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Brand Column -->
+                <div>
+                    <h3 class="text-2xl font-black mb-6">EXPEROUTFIT</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Redefining streetwear with unique designs and premium quality. Express your individuality with EXPEROUTFIT.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Shop Column -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Shop</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">T-Shirts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pants</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shoes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Orders</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service Column -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Get in Touch</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@experoutfit.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fab fa-whatsapp mr-3"></i>
+                            <span>WhatsApp Support</span>
+                        </li>
+                        <li class="flex items-start text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>123 Street Style Ave<br>Fashion District, NY 10001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 EXPEROUTFIT. All rights reserved. | Privacy Policy | Terms of Service
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: WhatsApp Chat Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all transform hover:scale-110" 
+                data-event="click:openWhatsApp" 
+                data-implementation="Should open WhatsApp chat or contact form">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </button>
+    </div>
+    <!-- @END_COMPONENT: WhatsApp Chat Widget -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        (function() {
+            // Basic interactive functionality for demo purposes
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('[data-mobile-menu]');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // TODO: Implement mobile menu toggle
+                    console.log('Mobile menu toggle clicked');
+                });
+            }
+            
+            // Shopping cart interactions
+            const cartButtons = document.querySelectorAll('[data-event*="cart"]');
+            cartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement add to cart functionality
+                    console.log('Add to cart clicked');
+                });
+            });
+            
+            // Newsletter subscription
+            const newsletterForm = document.querySelector('form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement newsletter subscription
+                    console.log('Newsletter subscription submitted');
+                });
+            }
+            
+            // WhatsApp integration
+            const whatsappButton = document.querySelector('[data-event*="WhatsApp"]');
+            if (whatsappButton) {
+                whatsappButton.addEventListener('click', function() {
+                    // TODO: Implement WhatsApp integration
+                    console.log('WhatsApp chat opened');
+                });
+            }
+            
+            // Product image hover effects
+            const productImages = document.querySelectorAll('.group img');
+            productImages.forEach(img => {
+                img.addEventListener('mouseenter', function() {
+                    // TODO: Implement product image zoom or gallery
+                    console.log('Product image hovered');
+                });
+            });
+            
+        })();
+    </script>
+</body>
+</html>

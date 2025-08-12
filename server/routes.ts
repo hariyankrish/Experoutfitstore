@@ -19,7 +19,11 @@ const upload = multer({
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
+  if (process.env.DISABLE_AUTH === 'true') {
+  app.use((_req, _res, next) => next()); // bypass auth
+} else {
   await setupAuth(app);
+}
 
   // Auth routes
   app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {

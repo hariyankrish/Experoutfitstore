@@ -1,153 +1,75 @@
+// server/services/openai.ts
 import OpenAI from "openai";
 
-// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_KEY 
-});
+const getClient = () => {
+  const disabled = process.env.DISABLE_AI === "true";
+  const apiKey = process.env.OPENAI_API_KEY || process.env.OPENAI_KEY;
+  if (disabled || !apiKey) return null;
+  return new OpenAI({ apiKey });
+};
 
 export interface ChatMessage {
-  role: 'system' | 'user' | 'assistant';
+  role: "system" | "user" | "assistant";
   content: string;
 }
 
 export async function chatWithAI(messages: ChatMessage[]): Promise<string> {
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o",
-      messages,
-      temperature: 0.7,
-      max_tokens: 500,
-    });
-
-    return response.choices[0].message.content || "I'm sorry, I couldn't process that request.";
-  } catch (error) {
-    console.error("OpenAI API error:", error);
-    throw new Error("Failed to get AI response");
-  }
+  const client = getClient();
+  if (!client) return "AI disabled in dev. Set OPENAI_API_KEY to enable.";
+  const res = await client.chat.completions.create({
+    model: "gpt-4o",
+    messages,
+  });
+  return res.choices[0].message.content || "";
 }
 
-export async function generateProductRecommendations(userQuery: string, products: any[]): Promise<{
-  recommendations: string[],
-  explanation: string
+// NOTE: keep this exact name to match routes.ts
+export async function generateProductRecommendations(userQuery: string): Promise<{
+  recommendations: Array<{ title: string; reason?: string }>;
+  explanation: string;
 }> {
-  try {
-    const productNames = products.map(p => p.name).join(", ");
-    
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o",
-      messages: [
-        {
-          role: "system",
-          content: `You are a helpful fashion assistant for EXPEROUTFIT, a custom streetwear brand. 
-          Help customers find the perfect products based on their needs. 
-          Available products: ${productNames}
-          Respond with JSON in this format: { "recommendations": ["product1", "product2"], "explanation": "why these products match" }`
-        },
-        {
-          role: "user",
-          content: userQuery
-        }
-      ],
-      response_format: { type: "json_object" },
-    });
-
-    const result = JSON.parse(response.choices[0].message.content || "{}");
-    return {
-      recommendations: result.recommendations || [],
-      explanation: result.explanation || "These products match your style preferences."
-    };
-  } catch (error) {
-    console.error("Product recommendation error:", error);
+  const client = getClient();
+  if (!client) {
     return {
       recommendations: [],
-      explanation: "I'm having trouble processing recommendations right now."
+      explanation: "AI disabled in dev. Add OPENAI_API_KEY to enable recommendations.",
     };
   }
+
+  const res = await client.chat.completions.create({
+    model: "gpt-4o",
+    messages: [
+      { role: "system", content: "You are a fashion assistant. Respond in JSON." },
+      { role: "user", content: userQuery },
+    ],
+    response_format: { type: "json_object" },
+  });
+
+  const parsed = JSON.parse(res.choices[0].message.content || "{}");
+  return {
+    recommendations: parsed.recommendations || [],
+    explanation: parsed.explanation || "Here are matching products.",
+  };
 }
 
-export async function analyzeDesignImage(base64Image: string): Promise<{
-  description: string,
-  suggestedImprovements: string[],
-  colorPalette: string[]
+// Stubbed for dev; add real vision logic later if needed
+export async function analyzeDesignImage(_base64OrUrl: string): Promise<{
+  success: boolean;
+  description?: string;
+  suggestions?: string[];
+  error?: string;
 }> {
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o",
-      messages: [
-        {
-          role: "system",
-          content: `Analyze this design image for a custom apparel piece. Provide feedback on the design, 
-          suggest improvements, and extract the main color palette. 
-          Respond with JSON: { "description": "", "suggestedImprovements": [], "colorPalette": [] }`
-        },
-        {
-          role: "user",
-          content: [
-            {
-              type: "text",
-              text: "Please analyze this design for custom apparel printing"
-            },
-            {
-              type: "image_url",
-              image_url: {
-                url: `data:image/jpeg;base64,${base64Image}`
-              }
-            }
-          ],
-        },
-      ],
-      response_format: { type: "json_object" },
-      max_tokens: 500,
-    });
-
-    const result = JSON.parse(response.choices[0].message.content || "{}");
+  const client = getClient();
+  if (!client) {
     return {
-      description: result.description || "Unable to analyze the design",
-      suggestedImprovements: result.suggestedImprovements || [],
-      colorPalette: result.colorPalette || []
-    };
-  } catch (error) {
-    console.error("Design analysis error:", error);
-    return {
-      description: "Unable to analyze the design at this time",
-      suggestedImprovements: [],
-      colorPalette: []
+      success: true,
+      description: "AI disabled in dev.",
+      suggestions: ["Add OPENAI_API_KEY to enable image analysis."],
     };
   }
-}
-
-export async function generateCustomDesignIdeas(prompt: string): Promise<{
-  ideas: string[],
-  techniques: string[]
-}> {
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o",
-      messages: [
-        {
-          role: "system",
-          content: `You are a creative design assistant for custom streetwear. Generate design ideas and printing techniques 
-          based on user prompts. Focus on streetwear aesthetics, bold graphics, and modern trends.
-          Respond with JSON: { "ideas": ["idea1", "idea2"], "techniques": ["technique1", "technique2"] }`
-        },
-        {
-          role: "user",
-          content: prompt
-        }
-      ],
-      response_format: { type: "json_object" },
-    });
-
-    const result = JSON.parse(response.choices[0].message.content || "{}");
-    return {
-      ideas: result.ideas || [],
-      techniques: result.techniques || []
-    };
-  } catch (error) {
-    console.error("Design generation error:", error);
-    return {
-      ideas: ["Try bold typography with geometric shapes", "Consider abstract art with vibrant colors"],
-      techniques: ["Screen printing", "Heat transfer vinyl"]
-    };
-  }
+  // If you want real image analysis later, implement with GPT‑4o vision here.
+  return {
+    success: false,
+    error: "analyzeDesignImage not implemented yet.",
+  };
 }
